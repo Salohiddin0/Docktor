@@ -22,18 +22,106 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <!-- nice select -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+    integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
   <!-- datepicker -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+
+
+
+
+  <!-- <style>
+    /* Carousel konteynerining stilini belgilash */
+    .team_carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    /* Box (kartalar) stilini belgilash */
+    .box {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      margin: 0 15px;
+      text-align: center;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      /* Hoverda kartani yuqoriga ko'tarish */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Rasm qismi */
+    .img-box {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-bottom: 4px solid #f1f1f1;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover .img-box img {
+      transform: scale(1.1);
+      /* Hoverda rasmlarni biroz kattalashtirish */
+    }
+
+    /* Detallarni stil qilish */
+    .detail-box {
+      padding: 15px;
+    }
+
+    .detail-box h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .detail-box h6 {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .social_box {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .social_box a {
+      color: #333;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social_box a:hover {
+      color: #1e90ff;
+    }
+  </style> -->
+
 
 </head>
 
@@ -74,7 +162,8 @@
             </a>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
             </button>
 
@@ -102,13 +191,13 @@
                 </ul>
               </div>
               <div class="quote_btn-container">
-                <a href="">
+                <a href="login.html">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Login
                   </span>
                 </a>
-                <a href="">
+                <a href="signup.html">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Sign Up
@@ -137,9 +226,14 @@
           Our <span>Doctors</span>
         </h2>
       </div>
+
+
+
       <div class="carousel-wrap ">
-        <div class="owl-carousel team_carousel">
-          <div class="item">
+        <div style="display: flex; gap: 25px; justify-content: center; align-items: center;"
+          class="owl-carousel team_carousel" id="doctorCarousel" id="doctorCarousel">
+
+          <!-- <div class="item">
             <div class="box">
               <div class="img-box">
                 <img src="images/team1.jpg" alt="" />
@@ -225,9 +319,12 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
+
         </div>
       </div>
+
+
     </div>
   </section>
 
@@ -388,12 +485,19 @@
   </footer>
   <!-- footer section -->
 
+
+
+  <script src="./js/doctorAll.js"></script>
+
+
+
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
   <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"
+    integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- datepicker -->
