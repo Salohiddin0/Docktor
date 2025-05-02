@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - MICO</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 480px;
+            /* << o'zgartirildi */
+        }
+
+        h2 {
+            text-align: center;
+            color: #00c8b3;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            line-height: 1.4;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        button {
+            background-color: #00c8b3;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #009e94;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .link a {
+            color: #00c8b3;
+            text-decoration: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <input type="text" name="fullName" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="link">
+            Already have an account? <a href="login.html">Login</a>
+            <a style="color: black; text-decoration:underline; margin-left: 10px" href="index.html">Back</a>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("signupForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const fullName = document.querySelector('[name="fullName"]').value;
+        const email = document.querySelector('[name="email"]').value;
+        const password = document.querySelector('[name="password"]').value;
+        const confirmPassword = document.querySelector('[name="confirmPassword"]').value;
+
+        if (password !== confirmPassword) {
+            alert("Parollar mos emas!");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://165.22.247.233:5001/api/Admins/CreateAdmin", {  // Swagger'dagi endpoint manzilini yozing
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ fullName, email, password })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert("Ro'yxatdan o‘tish muvaffaqiyatli! 👏");
+                // location.href = "login.html"; // Istasangiz login sahifaga yo‘naltiring
+            } else {
+                const errorText = await response.text();
+                alert("Xatolik: " + errorText);
+            }
+
+        } catch (error) {
+            alert("Tarmoq xatosi: " + error);
+        }
+    });
+</script>
+
+
+</html>
